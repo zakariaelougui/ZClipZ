@@ -17,9 +17,9 @@ export class LoginComponent implements OnInit {
   alertColor = 'blue';
   inSubmission = false;
 
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   async login() {
     this.showAlert = true;

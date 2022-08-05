@@ -15,7 +15,7 @@ firebase.initializeApp(environment.firebase)
 let appInit = false
 
 firebase.auth().onAuthStateChanged(() => {
-  if(!appInit) {
+  if (!appInit) {
     platformBrowserDynamic().bootstrapModule(AppModule)
       .catch(err => console.error(err));
   }

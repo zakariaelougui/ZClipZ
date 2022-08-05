@@ -14,7 +14,7 @@ export class RegisterComponent {
   constructor(
     private auth: AuthService,
     private emailTaken: EmailTaken
-  ) {}
+  ) { }
 
   inSubmission = false;
 
@@ -22,8 +22,8 @@ export class RegisterComponent {
 
   email = new FormControl('', [
     Validators.required,
-     Validators.email
-    ], [this.emailTaken.validate]
+    Validators.email
+  ], [this.emailTaken.validate]
   );
 
   age = new FormControl(null, [
@@ -58,7 +58,7 @@ export class RegisterComponent {
       confirm_password: this.confirm_password,
       phoneNumber: this.phoneNumber,
     },
-    [RegisterValidators.match('password','confirm_password')]
+    [RegisterValidators.match('password', 'confirm_password')]
   );
 
   showAlert = false;
@@ -72,6 +72,7 @@ export class RegisterComponent {
     this.inSubmission = true;
 
     const { email, password } = this.registerForm.value;
+
     try {
       this.auth.createUser(this.registerForm.value as IUser);
     } catch ({ message }) {
